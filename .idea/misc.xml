@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="enabledOnSave" value="true" />
+    <option name="executionMode" value="BINARY" />
+    <option name="pathToExecutable" value="C:\Users\Lenovo\AppData\Local\Programs\Python\Python311\Scripts\black.exe" />
+    <option name="sdkUUID" value="7f562a05-dde1-4b37-8f1b-6d77a72fab51" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.11 (chess)" project-jdk-type="Python SDK" />
+</project>
