@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Django Chess - Register
+{% endblock %}
+
+{% block body %}
+    <div>
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <label for="username">Username:</label>
+                <input type="text" id="username">
+            </p>
+            <p>
+                <label for="password1">Password:</label>
+                <input type="password" id="password1">
+            </p>
+            <p>
+                <label for="password2">Repeat Password:</label>
+                <input type="password" id="password2">
+            </p>
+            <p id="message"></p>
+            <p><button id="submit" class="btn-primary" type="submit">Register</button></p>
+            <input type="checkbox" onclick="passwordHider2()">Show Password
+        </form>
+        <script>
+            const pswd1 = document.getElementById("password1");
+            const pswd2 = document.getElementById("password2");
+            const message = document.getElementById("message");
+            const submit = document.getElementById("submit")
+            pswd2.addEventListener("keyup", function (){
+                  if (pswd1.value === pswd2.value && pswd1.value !== "") {
+                        message.style.color = 'green';
+                        message.innerHTML = 'Passwords match! ☑️';
+                        submit.disabled = false;
+                      } else {
+                        message.style.color = 'red';
+                        message.innerHTML = 'Passwords don\'t match! ❌';
+                        submit.disabled = true;
+                  }
+            })
+            function passwordHider2(pass=pswd1, confirm=pswd2) {
+              if (pass.type === "password" && confirm.type === "password") {
+                pass.type = "text";
+                confirm.type = "text";
+              } else {
+                pass.type = "password";
+                confirm.type = "password";
+              }
+            }
+        </script>
+    </div>
+{% endblock %}
