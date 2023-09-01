@@ -2,6 +2,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import reverse, render
 from django.http import HttpResponseRedirect
 from django.db import IntegrityError
+from django.views.generic import View
 from .models import User
 
 
@@ -46,3 +47,7 @@ def register(request):
                 {"message": "Username already taken."},
             )
     return render(request, "register.html")
+
+
+def game_view(request, game_id):
+    return render(request, "room.html", {"game_id": game_id})
