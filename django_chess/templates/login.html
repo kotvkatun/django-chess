@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Django Chess - Log In
+{% endblock %}
+
+{% block body %}
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            <p>
+                <label for="username">Username:</label>
+                <input type="text" id="username">
+            </p>
+            <p>
+                <label for="password1">Password:</label>
+                <input type="password" id="password1">
+            </p>
+            <p id="message"></p>
+            <p><button id="submit" class="btn-primary" type="submit">Register</button></p>
+            <input type="checkbox" onclick="passwordHider()">Show Password
+        </form>
+        <script>
+            const password = document.getElementById("password1");
+            function passwordHider(pass=password){
+                  if (pass.type === "password") {
+                    pass.type = "text";
+                  } else {
+                    pass.type = "password";
+                  }
+            }
+        </script>
+{% endblock %}
